@@ -7,6 +7,16 @@ service ResilienceCockpitService
     @odata.draft.enabled
     entity AlternateSuppliers as
         projection on my.AlternateSuppliers;
+
+    @cds.redirection.target
+    @odata.draft.enabled
+    entity SupplierParts as
+        projection on my.SupplierParts;
+
+    @cds.redirection.target
+    @odata.draft.enabled
+    entity AlternateParts as
+        projection on my.AlternateParts;
 }
 
 annotate ResilienceCockpitService with @requires :

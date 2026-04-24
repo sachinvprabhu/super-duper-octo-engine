@@ -4,6 +4,7 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
+    "@sap/cds-common-content": "^3.1.0",
     "@sap/xssec": "^4"
   },
   "devDependencies": {
@@ -19,10 +20,10 @@
       "[production]": {
         "auth": "xsuaa"
       },
-      "auth":{
-        "kind":"mocked",
-        "users":{
-          "manager@nexus.com":{
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "manager@nexus.com": {
             "password": "password"
           }
         }

@@ -1,3 +1,3 @@
-ID,supplierNumber,supplierName,address,country,rating
-28416954-78d5-488b-9234-51aca04b0b5f,79,supplierName-28416954,address-28416954,country-28416954,39
-28416955-588c-4f23-88f6-6ec02611793f,93,supplierName-28416955,address-28416955,country-28416955,38
+ID,supplierNumber,supplierName,address,country_code,rating,createdAt,createdBy,modifiedAt,modifiedBy
+42620426-01eb-4bb0-8879-f46cb3a07b02,60,supplierName-4262042,address-4262042,965,43,2003-07-23T00:00:00.000Z,createdBy.2jcm2@example.org,2000-02-14T00:00:00.000Z,modifiedBy.2jcm2@example.com
+42620435-9ff5-4926-b7a9-448cb7c097a0,62,supplierName-4262043,address-4262043,965,10,2008-01-26T00:00:00.000Z,createdBy.2jcm3@example.com,2006-09-01T00:00:00.000Z,modifiedBy.2jcm3@example.com
