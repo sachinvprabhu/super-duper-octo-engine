@@ -19,6 +19,14 @@
       "[production]": {
         "auth": "xsuaa"
       },
+      "auth":{
+        "kind":"mocked",
+        "users":{
+          "manager@nexus.com":{
+            "password": "password"
+          }
+        }
+      },
       "connectivity": true,
       "destinations": true,
       "html5-repo": true,
