@@ -2,6 +2,7 @@
   "name": "ResilienceCockpit",
   "version": "1.0.0",
   "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.15.10",
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
     "@sap/cds-common-content": "^3.1.0",
@@ -26,6 +27,12 @@
           "manager@nexus.com": {
             "password": "password"
           }
+        }
+      },
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
         }
       },
       "connectivity": true,

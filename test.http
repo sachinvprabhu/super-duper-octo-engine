@@ -1,0 +1,40 @@
+### To read Suppliers use this API
+GET http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers
+Authorization: Basic manager@nexus.com:password
+
+### Use this API to write Data
+POST http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers
+Authorization: Basic manager@nexus.com:password
+Content-Type: application/json
+
+{
+    "supplierNumber": 91,
+    "supplierName": "Rosscom Chips",
+    "address": "Russia",
+    "country_code": "RU",
+    "rating": 10,
+    "IsActiveEntity": true
+}
+
+
+### Use this for Fetching single entry
+GET http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='311bdb3e-8d28-41c7-ab71-e7f74dc25ae6',IsActiveEntity=true)
+Authorization: Basic manager@nexus.com:password
+
+
+### Fetch Country for a supplier
+GET http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='311bdb3e-8d28-41c7-ab71-e7f74dc25ae6',IsActiveEntity=true)/country/descr/$value
+Authorization: Basic manager@nexus.com:password
+
+### Update a supplier
+PATCH http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='311bdb3e-8d28-41c7-ab71-e7f74dc25ae6',IsActiveEntity=true)
+Authorization: Basic manager@nexus.com:password
+Content-Type: application/json
+
+{
+    "country_code":"IN"
+}
+
+### OData V2 Testing scenario
+GET http://localhost:4004/odata/v2/service/ResilienceCockpitService/AlternateSuppliers
+Authorization: Basic manager@nexus.com:password
