@@ -11,7 +11,7 @@ Content-Type: application/json
     "supplierNumber": 91,
     "supplierName": "Rosscom Chips",
     "address": "Russia",
-    "country_code": "RU",
+    "country_code": "IN",
     "rating": 10,
     "IsActiveEntity": true
 }
@@ -27,7 +27,7 @@ GET http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID
 Authorization: Basic manager@nexus.com:password
 
 ### Update a supplier
-PATCH http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='311bdb3e-8d28-41c7-ab71-e7f74dc25ae6',IsActiveEntity=true)
+PATCH http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='1627dd32-170d-47c3-b3d2-07f9a7503196',IsActiveEntity=true)
 Authorization: Basic manager@nexus.com:password
 Content-Type: application/json
 
@@ -37,4 +37,10 @@ Content-Type: application/json
 
 ### OData V2 Testing scenario
 GET http://localhost:4004/odata/v2/service/ResilienceCockpitService/AlternateSuppliers
+Authorization: Basic manager@nexus.com:password
+
+
+
+### Trigger Action
+POST http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='1627dd32-170d-47c3-b3d2-07f9a7503196',IsActiveEntity=true)/downRate
 Authorization: Basic manager@nexus.com:password

@@ -7,7 +7,16 @@ service ResilienceCockpitService
     @odata.draft.bypass
     @odata.draft.enabled
     entity AlternateSuppliers as
-        projection on my.AlternateSuppliers;
+        projection on my.AlternateSuppliers
+        actions
+        {
+            action upRate
+            (
+            );
+            action downRate
+            (
+            );
+        };
 
     @cds.redirection.target
     @odata.draft.enabled
