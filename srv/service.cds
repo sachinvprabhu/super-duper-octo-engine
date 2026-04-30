@@ -1,5 +1,7 @@
 using { ResilienceCockpit as my } from '../db/schema.cds';
 
+using { API_INFORECORD_PROCESS_SRV as external } from './external/API_INFORECORD_PROCESS_SRV';
+
 @path : '/service/ResilienceCockpitService'
 service ResilienceCockpitService
 {
@@ -13,6 +15,7 @@ service ResilienceCockpitService
             action upRate
             (
             );
+
             action downRate
             (
             );
@@ -27,6 +30,10 @@ service ResilienceCockpitService
     @odata.draft.enabled
     entity AlternateParts as
         projection on my.AlternateParts;
+
+    @cds.redirection.target
+    entity A_PurchasingInfoRecord as
+        projection on external.A_PurchasingInfoRecord;
 }
 
 annotate ResilienceCockpitService with @requires :

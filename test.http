@@ -44,3 +44,19 @@ Authorization: Basic manager@nexus.com:password
 ### Trigger Action
 POST http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='1627dd32-170d-47c3-b3d2-07f9a7503196',IsActiveEntity=true)/downRate
 Authorization: Basic manager@nexus.com:password
+
+
+
+### Testing SAP API Hub
+GET https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_INFORECORD_PROCESS_SRV/A_PurchasingInfoRecord
+apikey: e9XLZVe5ClNn1nCGFYgUi22BN2WYBgMW
+Accept: application/json
+
+
+### To read S4API
+GET http://localhost:4004/service/ResilienceCockpitService/A_PurchasingInfoRecord?$filter=Material eq 'MZ-TG-A14'&$top=1
+Authorization: Basic manager@nexus.com:password
+
+
+###
+GET http://localhost:8887/reload

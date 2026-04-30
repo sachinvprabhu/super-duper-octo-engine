@@ -1,4 +1,10 @@
-let implementation = function(service){
+let implementation = async function(service){
+
+    let S4API = await cds.connect.to("API_INFORECORD_PROCESS_SRV");
+    service.on("READ","A_PurchasingInfoRecord",function(req){
+        return S4API.read(req.query)
+    });
+
     service.after("READ","AlternateSuppliers",function(data, req){
         for(let index in data){
             if(data[index].rating === 5){
