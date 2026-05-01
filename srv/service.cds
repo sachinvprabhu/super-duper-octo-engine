@@ -22,7 +22,6 @@ service ResilienceCockpitService
         };
 
     @cds.redirection.target
-    @odata.draft.enabled
     entity SupplierParts as
         projection on my.SupplierParts;
 

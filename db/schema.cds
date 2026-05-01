@@ -10,7 +10,7 @@ entity AlternateSuppliers : cuid, managed
     address : String;
     country : Country;
     rating : Integer;
-    supplierParts : Association to many SupplierParts on supplierParts.supplier = $self;
+    supplierParts : Composition of many SupplierParts on supplierParts.supplier = $self;
 }
 
 entity SupplierParts : cuid
@@ -45,4 +45,7 @@ entity AlternateParts : cuid
 }
 
 
-type Price : Currency;
+type Price {
+    currency: Currency;
+    value : Decimal(10,2)
+};
