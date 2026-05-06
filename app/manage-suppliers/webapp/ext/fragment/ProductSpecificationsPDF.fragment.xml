@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox id="VBox" core:require="{ handler: 'nexus/resilience/cockpit/managesuppliers/ext/fragment/ProductSpecificationsPDF'}">
+		<!-- <Button id="Button" text="ProductSpecificationsPDF" press="handler.onPress" /> -->
+
+		<PDFViewer id="idProductSpecificationPDF"
+			source="{specifications}" isTrustedSource="true"
+			title="{partNumber}" height="45rem">
+		</PDFViewer>
+
+	</VBox>
+</core:FragmentDefinition>

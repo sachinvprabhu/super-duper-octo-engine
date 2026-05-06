@@ -43,29 +43,38 @@ let implementation = async function(service){
     })
 
     service.on("upRate","AlternateSuppliers",async function(req){
-        let {rating} = await SELECT("rating").one.from("AlternateSuppliers")
+        let entity = await SELECT.one.from("AlternateSuppliers")
                             .where({ID:req.params[0].ID});
-        if(rating < 5){
-            rating = rating+1;
-            await UPDATE("AlternateSuppliers").set({rating:rating}).where({ID:req.params[0].ID})
-            req.notify("Rating Updated")
+        if(entity){
+            if(entity.rating < 5){
+                entity.rating = entity.rating+1;
+                await UPDATE("AlternateSuppliers").set({rating:entity.rating}).where({ID:req.params[0].ID})
+                req.notify("Rating Updated");
+            } else {
+                req.notify("Rating already high")
+            }
+            return entity;
         } else {
-            req.notify("Rating already high")
+            req.error("Supplier not found")
         }
-
     })
 
     
     service.on("downRate","AlternateSuppliers",async function(req){
         let entity = await SELECT.one.from("AlternateSuppliers")
                             .where({ID:req.params[0].ID});
-        let rating = entity.rating;
-        if(rating > 0){
-            rating = rating - 1;
-            await UPDATE("AlternateSuppliers").set({rating:rating}).where({ID:req.params[0].ID})
-            req.notify("Rating Updated")
+        if(entity){
+            if(entity.rating > 0){
+                entity.rating = entity.rating - 1;
+                await UPDATE("AlternateSuppliers").set({rating:entity.rating}).where({ID:req.params[0].ID})
+                req.notify("Rating Updated")
+                return entity;
+            } else {
+                req.notify("Rating already Low")
+                return entity;
+            }
         } else {
-            req.notify("Rating already Low")
+            req.error("Supplier not found")
         }
 
     })

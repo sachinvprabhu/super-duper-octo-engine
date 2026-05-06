@@ -70,6 +70,23 @@ annotate service.AlternateSuppliers with @(
             Value : country.name,
             Label : 'Country',
         },
+        {
+            $Type : 'UI.DataFieldForActionGroup',
+            Actions : [
+                {
+                    $Type : 'UI.DataFieldForAction',
+                    Action : 'ResilienceCockpitService.downRate',
+                    Label : 'Down Rate',
+                },
+                {
+                    $Type : 'UI.DataFieldForAction',
+                    Action : 'ResilienceCockpitService.upRate',
+                    Label : 'Up Rate',
+                },
+            ],
+            ID : 'ManageRatings',
+            Label : 'Manage Ratings',
+        },
     ],
     UI.DataPoint #rating : {
         Value : rating,

@@ -14,11 +14,11 @@ service ResilienceCockpitService
         {
             action upRate
             (
-            );
+            ) returns AlternateSuppliers;
 
             action downRate
             (
-            );
+            ) returns AlternateSuppliers;
         };
 
     @cds.redirection.target

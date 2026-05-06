@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Slider value="{rating}" width="100%" id="idSlider"
+			min="0" max="5" class="sapUiMediumMarginBottom" />
+</core:FragmentDefinition>

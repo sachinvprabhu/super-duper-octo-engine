@@ -153,6 +153,28 @@
                     "route": "SupplierPartsObjectPage"
                   }
                 }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.FieldGroup#GeneratedGroup": {
+                  "fields": {
+                    "RatingInput": {
+                      "template": "nexus.resilience.cockpit.managesuppliers.ext.fragment.RatingInput",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataField::address"
+                      },
+                      "label": "Rating"
+                    },
+                    "RatingSlider": {
+                      "template": "nexus.resilience.cockpit.managesuppliers.ext.fragment.RatingSlider",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "RatingInput"
+                      },
+                      "label": "RatingSlider"
+                    }
+                  }
+                }
               }
             }
           }
@@ -164,7 +186,21 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/AlternateSuppliers/supplierParts"
+              "contextPath": "/AlternateSuppliers/supplierParts",
+              "content": {
+                "body": {
+                  "sections": {
+                    "ProductSpecificationsPDF": {
+                      "template": "nexus.resilience.cockpit.managesuppliers.ext.fragment.ProductSpecificationsPDF",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Specifications"
+                      },
+                      "title": "Specifications PDF"
+                    }
+                  }
+                }
+              }
             }
           }
         }

@@ -42,7 +42,7 @@ Authorization: Basic manager@nexus.com:password
 
 
 ### Trigger Action
-POST http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='1627dd32-170d-47c3-b3d2-07f9a7503196',IsActiveEntity=true)/downRate
+POST http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID='42620426-01eb-4bb0-8879-f46cb3a07b02',IsActiveEntity=true)/downRate
 Authorization: Basic manager@nexus.com:password
 
 
