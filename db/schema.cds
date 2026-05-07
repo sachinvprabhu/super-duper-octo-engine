@@ -49,3 +49,9 @@ type Price {
     currency: Currency;
     value : Decimal(10,2)
 };
+
+entity SupplierLocations {
+    key Supplier : String(32);
+    Lat : Decimal(10,7);
+    Lng : Decimal(10,7);
+}

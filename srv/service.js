@@ -2,7 +2,35 @@ let implementation = async function(service){
 
     let S4API = await cds.connect.to("API_INFORECORD_PROCESS_SRV");
     service.on("READ","A_PurchasingInfoRecord",function(req){
-        return S4API.read(req.query)
+        // Sanitize Request
+        req.query.SELECT.columns.push({ref:['Supplier']});
+
+        return S4API.read(req.query).then(async entries=>{
+            if(entries.constructor === Array){
+                for(index in entries){
+                    let locationGeo = await SELECT.one.from("ResilienceCockpit.SupplierLocations")
+                            .where({Supplier:entries[index].Supplier});
+                    if(locationGeo){
+                        entries[index].Lat = locationGeo.Lat;
+                        entries[index].Lng = locationGeo.Lng;
+                    } else {
+                        entries[index].Lat = 0;
+                        entries[index].Lng = 0;
+                    }
+                }
+            } else {
+                let locationGeo = await SELECT.one.from("ResilienceCockpit.SupplierLocations")
+                            .where({Supplier:entries.Supplier});
+                if(locationGeo){
+                    entries.Lat = locationGeo.Lat;
+                    entries.Lng = locationGeo.Lng;
+                } else {
+                    entries.Lat = 0;
+                    entries.Lng = 0;
+                }     
+            }
+            return entries;
+        })
     });
 
     service.after("READ","AlternateSuppliers",function(data, req){

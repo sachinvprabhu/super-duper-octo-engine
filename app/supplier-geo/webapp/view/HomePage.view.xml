@@ -1,0 +1,32 @@
+<mvc:View controllerName="nexus.resilience.cockpit.suppliergeo.controller.HomePage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:gm="sap.ui.geomap" >
+    <Page id="page" title="{i18n>title}">
+        <gm:Geomap id="map"
+            width="100%"
+            height="90%"
+            centerLat="49.19224998218536"
+            centerLng="9.209693384445245"
+            items="{/A_PurchasingInfoRecord}"
+            zoom="12.47447780">
+            <gm:mapControls>
+                <!-- MAP PROVIDER - defines where the map is fetched from -->
+                <gm:GeomapProvider id="mapProvider" styleUrl="https://basemaps-api.arcgis.com/arcgis/rest/services/styles/ArcGIS:Streets?type=style&amp;token="></gm:GeomapProvider>
+                <!-- Show the navigation controls -->
+                <gm:GeomapNavigationControl></gm:GeomapNavigationControl>
+                <!-- Show the scale controls at bottom left-->
+                <gm:GeomapScaleControl position="BottomLeft"></gm:GeomapScaleControl>
+                <gm:GeomapCopyrightControl position="BottomRight">
+                    <Text class="copyright" text="Map data from "/>
+                    <Link class="sapUiTinyMarginBegin" target="_blank" text="OpenStreetMap" href="https://www.openstreetmap.org/copyright"/>
+                </gm:GeomapCopyrightControl>
+            </gm:mapControls>
+            <gm:items>
+                <gm:GeomapSpot lat="{Lat}" lng="{Lng}" color="black" click=".spotClick"></gm:GeomapSpot>
+            </gm:items>
+        </gm:Geomap>
+    </Page>
+</mvc:View>
+
+

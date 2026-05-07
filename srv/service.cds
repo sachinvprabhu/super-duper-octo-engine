@@ -32,7 +32,11 @@ service ResilienceCockpitService
 
     @cds.redirection.target
     entity A_PurchasingInfoRecord as
-        projection on external.A_PurchasingInfoRecord;
+        projection on external.A_PurchasingInfoRecord{
+            *,
+            0 as Lat : Decimal(10,7),
+            0 as Lng : Decimal(10,7)
+        };
 }
 
 annotate ResilienceCockpitService with @requires :
