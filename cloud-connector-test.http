@@ -1,0 +1,10 @@
+
+###
+GET http://localhost:8887/reload
+
+###
+GET http://json-db.dest/ShippingCostPerConsignment
+
+
+### Fetch Shipping Cost for a country
+GET http://json-db.dest/ShippingCostPerConsignment?SourceCountry:eq=UK

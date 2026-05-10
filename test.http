@@ -60,3 +60,9 @@ Authorization: Basic manager@nexus.com:password
 
 ###
 GET http://localhost:8887/reload
+
+
+
+###
+GET http://localhost:4004/service/ResilienceCockpitService/AlternateSuppliers(ID=42620426-01eb-4bb0-8879-f46cb3a07b02,IsActiveEntity=true)/supplierParts(ID=89272129-98cd-4c20-84e8-a24c8572aed5)
+Authorization: Basic manager@nexus.com:password

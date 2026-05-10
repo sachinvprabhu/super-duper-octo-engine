@@ -43,7 +43,7 @@
       "db": {
         "kind": "sqlite",
         "credentials": {
-          "url": "db.sqlite"
+          "url": ":memory:"
         }
       },
       "connectivity": true,
@@ -55,6 +55,12 @@
         "model": "srv/external/API_INFORECORD_PROCESS_SRV",
         "credentials": {
           "destination": "SAP_API_HUB"
+        }
+      },
+      "ShippingCostAPI": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "json-db"
         }
       }
     }

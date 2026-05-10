@@ -1,4 +1,6 @@
 using ResilienceCockpitService as service from '../../srv/service';
+using from '@sap/cds/common';
+
 annotate service.AlternateSuppliers with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
@@ -186,11 +188,29 @@ annotate service.SupplierParts with @(
                 Value : specifications,
                 Label : 'specifications',
             },
+            {
+                $Type : 'UI.DataField',
+                Value : shippingCost,
+                Label : 'shippingCost',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.country.name,
+                Label : 'Manufacturing Country',
+            },
         ],
     },
 );
 
 annotate service.SupplierParts with {
     specifications @UI.MultiLineText : true
+};
+
+annotate service.SupplierParts with {
+    shippingCost @Measures.ISOCurrency : cost_currency.code
+};
+
+annotate service.Countries with {
+    name @Common.FieldControl : #ReadOnly
 };
 

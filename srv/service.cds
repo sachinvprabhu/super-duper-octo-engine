@@ -23,7 +23,10 @@ service ResilienceCockpitService
 
     @cds.redirection.target
     entity SupplierParts as
-        projection on my.SupplierParts;
+        projection on my.SupplierParts{
+            *,
+            0 as shippingCost: Integer
+        };
 
     @cds.redirection.target
     @odata.draft.enabled

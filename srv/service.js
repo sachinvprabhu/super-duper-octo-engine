@@ -1,6 +1,9 @@
 let implementation = async function(service){
 
     let S4API = await cds.connect.to("API_INFORECORD_PROCESS_SRV");
+    
+    let ShippingCostAPI = await cds.connect.to("ShippingCostAPI");
+
     service.on("READ","A_PurchasingInfoRecord",function(req){
         // Sanitize Request
         req.query.SELECT.columns.push({ref:['Supplier']});
@@ -32,6 +35,18 @@ let implementation = async function(service){
             return entries;
         })
     });
+
+    service.after("READ","SupplierParts",async function(data,req){
+        
+        let {supplier_country_code} = (await SELECT("supplier.country.code").from("ResilienceCockpit.SupplierParts"))[0];
+        if(supplier_country_code){
+            let shippingCosts = await ShippingCostAPI.send("GET","/ShippingCostPerConsignment?SourceCountry:eq="+supplier_country_code);
+            data.forEach(element => {
+                element.shippingCost = shippingCosts[0].cost_value;
+            });
+        }
+        return data;
+    })
 
     service.after("READ","AlternateSuppliers",function(data, req){
         for(let index in data){
