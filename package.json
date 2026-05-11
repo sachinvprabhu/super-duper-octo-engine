@@ -36,7 +36,16 @@
         "kind": "mocked",
         "users": {
           "manager@nexus.com": {
-            "password": "password"
+            "password": "password",
+            "roles":["NX-SC-USER","NX-SC-MGR"]
+          },
+          "sc-analyst@nexus.com": {
+            "password": "password",
+            "roles":["NX-SC-USER", "NX-SC-ANL"]
+          },
+          "pr-analyst@nexus.com": {
+            "password": "password",
+            "roles":["NX-SC-USER", "NX-PR-ANL"]
           }
         }
       },

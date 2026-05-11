@@ -41,8 +41,3 @@ service ResilienceCockpitService
             0 as Lng : Decimal(10,7)
         };
 }
-
-annotate ResilienceCockpitService with @requires :
-[
-    'authenticated-user'
-];

@@ -1,6 +1,48 @@
 {
-  "scopes": [],
+  "xsappname":"nexus-supplychain-app",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.NX-SC-USER",
+      "description": "Supplychain User"
+    },
+    {
+      "name": "$XSAPPNAME.NX-SC-ANL",
+      "description": "Supplychain Analyst"
+    },
+    {
+      "name": "$XSAPPNAME.NX-SC-MGR",
+      "description": "Supplychain Manager"
+    },
+    {
+      "name": "$XSAPPNAME.NX-PR-ANL",
+      "description": "Procurement Analyst"
+    }
+  ],
   "attributes": [],
-  "role-templates": [],
-  "authorities-inheritance": false
+  "role-templates": [
+    {
+      "name": "NX-SC-ANL",
+      "description": "Supplychain Analyst Role Template",
+      "scope-references": [
+        "$XSAPPNAME.NX-SC-USER", "$XSAPPNAME.NX-SC-ANL"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "NX-SC-MGR",
+      "description": "Supplychain Manager Role Template",
+      "scope-references": [
+        "$XSAPPNAME.NX-SC-USER", "$XSAPPNAME.NX-SC-MGR"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "NX-PR-ANL",
+      "description": "Procurement Analyst Role Template",
+      "scope-references": [
+        "$XSAPPNAME.NX-SC-USER", "$XSAPPNAME.NX-PR-ANL"
+      ],
+      "attribute-references": []
+    }
+  ]
 }
