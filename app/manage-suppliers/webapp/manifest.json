@@ -215,5 +215,9 @@
     "app": {
       "enableLazyLoading": true
     }
+  },
+  "sap.cloud": {
+    "service": "nexus",
+    "public": true
   }
 }

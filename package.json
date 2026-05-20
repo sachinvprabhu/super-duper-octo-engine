@@ -30,7 +30,8 @@
   "cds": {
     "requires": {
       "[production]": {
-        "auth": "xsuaa"
+        "auth": "xsuaa",
+        "db":"hana"
       },
       "auth": {
         "kind": "mocked",
@@ -49,12 +50,7 @@
           }
         }
       },
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": ":memory:"
-        }
-      },
+      "db": "hana",
       "connectivity": true,
       "destinations": true,
       "html5-repo": true,
